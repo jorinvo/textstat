@@ -2,21 +2,22 @@ package lib
 
 import (
 	"os"
+	"strings"
 	"text/template"
 )
 
 var tmpl = `
-  total words: {{.TotalWords}}
-  unique words: {{.UniqueWords}}
-  average word length: {{.AverageWordLength}}
-  most used words: {{.MostUsedWords}}
+  Total words: {{.TotalWords}}
+  Unique words: {{.UniqueWords}}
+  Average word length: {{.AverageWordLength}}
+  Most used words: {{.MostUsedWords}}
 `
 
 type report struct {
 	TotalWords        int
 	UniqueWords       int
 	AverageWordLength float64
-	MostUsedWords     []string
+	MostUsedWords     string
 }
 
 // Report statistics to stdout.
@@ -25,7 +26,7 @@ func Report(stat Textstat) error {
 		TotalWords:        stat.TotalWords(),
 		UniqueWords:       stat.UniqueWords(),
 		AverageWordLength: stat.AverageWordLength(),
-		MostUsedWords:     stat.MostUsedWords(),
+		MostUsedWords:     strings.Join(stat.MostUsedWords(), ", "),
 	})
 }
 

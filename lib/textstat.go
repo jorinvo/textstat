@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+// TODO: Document functions.
+
 // Textstat ...
 type Textstat struct {
 	total     int
@@ -47,13 +49,6 @@ func (t *Textstat) Parse(text string) {
 	}
 }
 
-// TODO: Remove special chars from words
-func (t *Textstat) add(word string) {
-	t.total++
-	t.histogram[strings.ToLower(word)]++
-	t.length += len([]rune(word))
-}
-
 // TotalWords ...
 func (t Textstat) TotalWords() int {
 	return t.total
@@ -77,4 +72,15 @@ func (t Textstat) MostUsedWords() []string {
 		words[i] = t.histogram.RemoveMax()
 	}
 	return words
+}
+
+//
+// Private:
+//
+
+// TODO: Remove special chars from words
+func (t *Textstat) add(word string) {
+	t.total++
+	t.histogram[strings.ToLower(word)]++
+	t.length += len([]rune(word))
 }
