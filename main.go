@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"io"
 	"log"
 	"os"
 
@@ -14,20 +13,24 @@ func main() {
 	arg := flag.Arg(0)
 	hasArg := len(arg) != 0
 
-	var reader io.Reader
+	var (
+		stats lib.Textstat
+		err   error
+	)
+
 	if hasArg {
-		reader = openFile(arg)
+		stats, err = lib.FromFile(arg)
 	} else {
-		reader = os.Stdin
+		stats, err = lib.FromReader(os.Stdin)
 	}
 
-	lib.Report(lib.FromReader(reader))
-}
-
-func openFile(path string) io.Reader {
-	file, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
 	}
-	return file
+
+	err = lib.Report(stats)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }

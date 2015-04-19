@@ -5,19 +5,23 @@ type Histogram map[string]int
 
 // RemoveMax element with biggest value from histogram.
 func (h Histogram) RemoveMax() string {
-	key := h.findMax()
-	delete(h, key)
-	return key
+	max := h.maxByValue()
+	delete(h, max)
+	return max
 }
 
-func (h Histogram) findMax() string {
-	var res string
-	var maxVal int
+func (h Histogram) maxByValue() string {
+	var (
+		maxKey string
+		maxVal int
+	)
+
 	for key, val := range h {
 		if val > maxVal {
+			maxKey = key
 			maxVal = val
-			res = key
 		}
 	}
-	return res
+
+	return maxKey
 }

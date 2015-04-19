@@ -1,9 +1,8 @@
 package lib
 
 import (
-	"html/template"
-	"log"
 	"os"
+	"text/template"
 )
 
 var tmpl = `
@@ -21,22 +20,22 @@ type report struct {
 }
 
 // Report statistics to stdout.
-func Report(stat Textstat) {
-	report{
+func Report(stat Textstat) error {
+	return print(report{
 		TotalWords:        stat.TotalWords(),
 		UniqueWords:       stat.UniqueWords(),
 		AverageWordLength: stat.AverageWordLength(),
 		MostUsedWords:     stat.MostUsedWords(),
-	}.print()
+	})
 }
 
-func (r report) print() {
+// Utilities
+// NOTE: Maybe I can create a separate package just to keep helpers like this.
+
+func print(data interface{}) error {
 	tmpl, err := template.New("tmpl").Parse(tmpl)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
-	err = tmpl.Execute(os.Stdout, r)
-	if err != nil {
-		log.Fatal(err)
-	}
+	return tmpl.Execute(os.Stdout, data)
 }
