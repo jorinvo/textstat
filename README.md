@@ -7,13 +7,13 @@ The main reason behind this is me wanting to hack on a nice little project. Text
 ![Preview](screenshot.png)
 
 I am glad about any suggestions since I'm only learning here.
-Feel free to use the [Issues](issues) / [Pull Request](pr).
+Feel free to use the [Issues][issues] / [Pull Request][pr].
 
-(There's also a [Ruby version](rb) of this project.)
+(There's also a [Ruby version][rb] of this project.)
 
 ## Setup
 
-- [Download the binary](bin) and you are good to go.
+- [Download the binary][bin] and you are good to go.
 - Optional you can add it to your `$PATH`.
 
 
@@ -48,14 +48,14 @@ import (
 )
 ```
 
-For now see [textstat.go](lib) details on the API.
+For now see [textstat.go][lib] details on the API.
 
 
 ## Development
 
 ### Requirements
 
-- Make sure you have [Go](go) installed.
+- Make sure you have [Go][go] installed.
 
 ### Setup
 
