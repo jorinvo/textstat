@@ -1,13 +1,14 @@
 package lib
 
+// TODO: Document functions.
+// TODO: Add analysis of sentences and characters.
+
 import (
 	"bufio"
 	"io"
 	"os"
 	"strings"
 )
-
-// TODO: Document functions.
 
 // Textstat ...
 type Textstat struct {

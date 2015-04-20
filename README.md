@@ -4,6 +4,8 @@ Textstat is an utility to get statistics about text content.
 
 The main reason behind this is me wanting to hack on a nice little project. Textstat happens to be well suited to explore new technologies.
 
+![Preview](screenshot.png)
+
 I am glad about any suggestions since I'm only learning here.
 Feel free to use the [Issues](issues) / [Pull Request](pr).
 
