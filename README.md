@@ -75,8 +75,8 @@ MIT
 
 
 [rb]: https://github.com/jorin-vogel/textstat-rb
-[issues]: https://github.com/jorin-vogel/textstat-rb/issues
-[pr]: https://github.com/jorin-vogel/textstat-rb/pulls
-[bin]: https://github.com/jorin-vogel/textstat-rb/releases
+[issues]: https://github.com/jorin-vogel/textstat-go/issues
+[pr]: https://github.com/jorin-vogel/textstat-go/pulls
+[bin]: https://github.com/jorin-vogel/textstat-go/releases
 [lib]: lib/textstat.go
 [go]: https://golang.org/
